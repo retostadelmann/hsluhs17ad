@@ -1,0 +1,26 @@
+-classpath
+'C:/Users/reto.stadelmann/.m2/repository/org/apache/logging/log4j/log4j-api/2.9.0/log4j-api-2.9.0.jar'
+-encoding
+'UTF-8'
+-overview
+'C:/HSLU/Java/AD_EX_HS17/src/main/javadoc/overview.html'
+-protected
+-sourcepath
+'C:/HSLU/Java/AD_EX_HS17/src/main/java;C:/HSLU/Java/AD_EX_HS17/target/generated-sources/annotations;C:/HSLU/Java/AD_EX_HS17/src/main/javadoc'
+-author
+-bottom
+'Copyright &#169; 2017 <a href="http://www.hslu.ch/informatik/">Hochschule Luzern - Informatik</a>. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/HSLU/Java/AD_EX_HS17/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'ad_ex_hs17 1.0.0-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/8/docs/api' 'C:/HSLU/Java/AD_EX_HS17/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'ad_ex_hs17 1.0.0-SNAPSHOT API'
