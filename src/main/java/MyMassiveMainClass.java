@@ -1,10 +1,4 @@
 
-import ch.hslu.ad.sw01.Allocation;
-import ch.hslu.ad.sw01.Memory;
-import ch.hslu.ad.sw01.MemoryDemo;
-import ch.hslu.ad.sw01.MemorySimple;
-import ch.hslu.ad.sw02.MyStack;
-import ch.hslu.ad.sw02.RingBuffer;
 import ch.hslu.ad.sw03.ExampleTree;
 import ch.hslu.ad.sw03.ITree;
 import org.apache.logging.log4j.LogManager;
@@ -24,7 +18,7 @@ public class MyMassiveMainClass {
     static Logger LOG = LogManager.getLogger(MyMassiveMainClass.class);
     
     public static void main(final String[] args){
-        ITree tree = new ExampleTree();
+        ITree<Integer> tree = new ExampleTree();
         tree.addNode(4);
         tree.addNode(2);
         tree.addNode(1);

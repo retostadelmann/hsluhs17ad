@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
  */
 public final class ExampleTree<T extends Comparable<T>> implements ITree<T> {
     static Logger LOG = LogManager.getLogger(ExampleTree.class);
+    
     private ITreeNode rootNode;
 
     @Override
@@ -23,7 +24,7 @@ public final class ExampleTree<T extends Comparable<T>> implements ITree<T> {
 
     @Override
     public void addNode(T value) {
-        ITreeNode node = new ExampleTreeNode(value);
+        ITreeNode<T> node = new ExampleTreeNode(value);
         if(this.rootNode == null){
             this.rootNode = node;
         }

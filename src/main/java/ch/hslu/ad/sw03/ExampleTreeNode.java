@@ -15,13 +15,19 @@ import org.apache.logging.log4j.Logger;
  *
  * @author reto.stadelmann
  */
-public final class ExampleTreeNode<T extends Comparable<T>> implements ITreeNode<T>, Comparable<ITreeNode>, Comparator<ITreeNode> {
-
+public final class ExampleTreeNode<T extends Comparable<T>> implements ITreeNode<T>, Comparable<ITreeNode>, Comparator<ITreeNode> 
+{
     static Logger LOG = LogManager.getLogger(ExampleTreeNode.class);
+    
     private T value;
     private final int hash;
+    
     private ITreeNode leftNode, rightNode, parentNode;
 
+    /**
+     * Creates a new Example Tree Node
+     * @param value The data value.
+     */
     public ExampleTreeNode(final T value) {
         this.value = value;
         this.hash = this.hashCode();
@@ -31,8 +37,6 @@ public final class ExampleTreeNode<T extends Comparable<T>> implements ITreeNode
     public T getValue() {
         return this.value;
     }
-    
-    
 
     @Override
     public void setValue(T value) {
@@ -104,7 +108,7 @@ public final class ExampleTreeNode<T extends Comparable<T>> implements ITreeNode
 
     @Override
     public int compare(ITreeNode t, ITreeNode t1) {
-        return ((T)t.getValue()).compareTo((T)t1.getValue());
+        return ((T) t.getValue()).compareTo((T) t1.getValue());
     }
 
     @Override
@@ -126,19 +130,19 @@ public final class ExampleTreeNode<T extends Comparable<T>> implements ITreeNode
     public void removeRightNode() {
         this.rightNode = null;
     }
-    
+
     @Override
-    public int getHash(){
+    public int getHash() {
         return this.hash;
     }
-    
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hashCode(this.value);
     }
 
     @Override
     public int compareTo(ITreeNode t) {
-        return this.value.compareTo((T)t.getValue());
+        return this.value.compareTo((T) t.getValue());
     }
 }
