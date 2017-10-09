@@ -7,7 +7,6 @@ package ch.hslu.ad.sw03;
 
 import java.util.Comparator;
 import java.util.Objects;
-import java.util.logging.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,17 +14,18 @@ import org.apache.logging.log4j.Logger;
  *
  * @author reto.stadelmann
  */
-public final class ExampleTreeNode<T extends Comparable<T>> implements ITreeNode<T>, Comparable<ITreeNode>, Comparator<ITreeNode> 
-{
+public final class ExampleTreeNode<T extends Comparable<T>> implements ITreeNode<T>, Comparable<ITreeNode>, Comparator<ITreeNode> {
+
     static Logger LOG = LogManager.getLogger(ExampleTreeNode.class);
-    
+
     private T value;
     private final int hash;
-    
+
     private ITreeNode leftNode, rightNode, parentNode;
 
     /**
      * Creates a new Example Tree Node
+     *
      * @param value The data value.
      */
     public ExampleTreeNode(final T value) {

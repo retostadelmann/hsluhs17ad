@@ -14,41 +14,42 @@ import org.junit.Test;
  * @author reto.stadelmann
  */
 public class TreeNodeTests {
+
     @Test
-    public void getSetValueTest(){
+    public void getSetValueTest() {
         int val = 5;
         ITreeNode<Integer> t = new ExampleTreeNode(val);
         t.setValue(val);
-        assertEquals(val, (int)t.getValue());
+        assertEquals(val, (int) t.getValue());
     }
-    
+
     @Test
-    public void getSetLeftNodeTest(){
+    public void getSetLeftNodeTest() {
         ITreeNode n = new ExampleTreeNode(1);
         ITreeNode t = new ExampleTreeNode(2);
         t.addNode(n);
         assertEquals(n, t.getLeftNode());
     }
-    
+
     @Test
-    public void getSetRightNodeTest(){
+    public void getSetRightNodeTest() {
         ITreeNode n = new ExampleTreeNode(2);
         ITreeNode t = new ExampleTreeNode(1);
         t.addNode(n);
         assertEquals(n, t.getRightNode());
     }
-    
+
     @Test
-    public void getSetLeftNodeFalseTest(){
+    public void getSetLeftNodeFalseTest() {
         ITreeNode n = new ExampleTreeNode(1);
         ITreeNode t = new ExampleTreeNode(3);
         ITreeNode j = new ExampleTreeNode(2);
         t.addNode(j);
         assertFalse(n.equals(t.getLeftNode()));
     }
-    
+
     @Test
-    public void getSetRightNodeFalseTest(){
+    public void getSetRightNodeFalseTest() {
         ITreeNode n = new ExampleTreeNode(1);
         ITreeNode t = new ExampleTreeNode(3);
         ITreeNode j = new ExampleTreeNode(2);

@@ -13,8 +13,9 @@ import org.apache.logging.log4j.Logger;
  * @author reto.stadelmann
  */
 public final class ExampleTree<T extends Comparable<T>> implements ITree<T> {
+
     static Logger LOG = LogManager.getLogger(ExampleTree.class);
-    
+
     private ITreeNode rootNode;
 
     @Override
@@ -25,10 +26,9 @@ public final class ExampleTree<T extends Comparable<T>> implements ITree<T> {
     @Override
     public void addNode(T value) {
         ITreeNode<T> node = new ExampleTreeNode(value);
-        if(this.rootNode == null){
+        if (this.rootNode == null) {
             this.rootNode = node;
-        }
-        else{
+        } else {
             rootNode.addNode(node);
         }
     }
@@ -38,15 +38,14 @@ public final class ExampleTree<T extends Comparable<T>> implements ITree<T> {
         ITreeNode node = this.search(value);
         ITreeNode leftNode = node.getParentNode().getLeftNode();
         ITreeNode rightNode = node.getParentNode().getRightNode();
-        
-        if(!node.canBeRemoved()){
-            throw new IllegalAccessError("Node with value " + value + " cannot be removed because it contains children" );
+
+        if (!node.canBeRemoved()) {
+            throw new IllegalAccessError("Node with value " + value + " cannot be removed because it contains children");
         }
-        
-        if(leftNode.getValue() == value){
+
+        if (leftNode.getValue() == value) {
             node.removeLeftNode();
-        }
-        else{
+        } else {
             node.removeRightNode();
         }
     }
@@ -54,10 +53,9 @@ public final class ExampleTree<T extends Comparable<T>> implements ITree<T> {
     @Override
     public ITreeNode search(final T value) {
         LOG.info("Starting search for value " + value);
-        if(this.rootNode.getValue() == value){
+        if (this.rootNode.getValue() == value) {
             return this.rootNode;
-        }
-        else{
+        } else {
             return this.rootNode.search(value);
         }
     }
