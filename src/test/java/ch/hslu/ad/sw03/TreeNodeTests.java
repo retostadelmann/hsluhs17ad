@@ -17,9 +17,9 @@ public class TreeNodeTests {
     @Test
     public void getSetValueTest(){
         int val = 5;
-        ITreeNode t = new ExampleTreeNode(val);
+        ITreeNode<Integer> t = new ExampleTreeNode(val);
         t.setValue(val);
-        assertEquals(val, t.getValue());
+        assertEquals(val, (int)t.getValue());
     }
     
     @Test
