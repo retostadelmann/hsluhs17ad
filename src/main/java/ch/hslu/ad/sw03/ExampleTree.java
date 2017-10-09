@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
  *
  * @author reto.stadelmann
  */
-public final class ExampleTree implements ITree {
+public final class ExampleTree<T extends Comparable<T>> implements ITree<T> {
     static Logger LOG = LogManager.getLogger(ExampleTree.class);
     private ITreeNode rootNode;
 
@@ -22,7 +22,7 @@ public final class ExampleTree implements ITree {
     }
 
     @Override
-    public void addNode(int value) {
+    public void addNode(T value) {
         ITreeNode node = new ExampleTreeNode(value);
         if(this.rootNode == null){
             this.rootNode = node;
@@ -33,14 +33,25 @@ public final class ExampleTree implements ITree {
     }
 
     @Override
-    public ITreeNode removeRootNode() {
-        ITreeNode node = this.rootNode;
-        this.rootNode = null;
-        return node;
+    public void removeNode(final T value) {
+        ITreeNode node = this.search(value);
+        ITreeNode leftNode = node.getParentNode().getLeftNode();
+        ITreeNode rightNode = node.getParentNode().getRightNode();
+        
+        if(!node.canBeRemoved()){
+            throw new IllegalAccessError("Node with value " + value + " cannot be removed because it contains children" );
+        }
+        
+        if(leftNode.getValue() == value){
+            node.removeLeftNode();
+        }
+        else{
+            node.removeRightNode();
+        }
     }
 
     @Override
-    public ITreeNode search(final int value) {
+    public ITreeNode search(final T value) {
         LOG.info("Starting search for value " + value);
         if(this.rootNode.getValue() == value){
             return this.rootNode;

@@ -9,9 +9,9 @@ package ch.hslu.ad.sw03;
  *
  * @author reto.stadelmann
  */
-public interface ITree {
+public interface ITree<T> {
     ITreeNode getRootNode();
-    void addNode(final int value);
-    ITreeNode removeRootNode();
-    ITreeNode search(final int value);
+    void addNode(final T value);
+    void removeNode(final T value);
+    ITreeNode search(final T value);
 }

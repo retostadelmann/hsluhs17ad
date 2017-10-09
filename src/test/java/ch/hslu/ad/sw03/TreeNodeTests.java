@@ -17,42 +17,42 @@ public class TreeNodeTests {
     @Test
     public void getSetValueTest(){
         int val = 5;
-        ITreeNode t = new ExampleTreeNode();
+        ITreeNode t = new ExampleTreeNode(val);
         t.setValue(val);
         assertEquals(val, t.getValue());
     }
     
     @Test
     public void getSetLeftNodeTest(){
-        ITreeNode n = new ExampleTreeNode();
-        ITreeNode t = new ExampleTreeNode();
-        t.setLeftNode(n);
+        ITreeNode n = new ExampleTreeNode(1);
+        ITreeNode t = new ExampleTreeNode(2);
+        t.addNode(n);
         assertEquals(n, t.getLeftNode());
     }
     
     @Test
     public void getSetRightNodeTest(){
-        ITreeNode n = new ExampleTreeNode();
-        ITreeNode t = new ExampleTreeNode();
-        t.setRightNode(n);
+        ITreeNode n = new ExampleTreeNode(2);
+        ITreeNode t = new ExampleTreeNode(1);
+        t.addNode(n);
         assertEquals(n, t.getRightNode());
     }
     
     @Test
     public void getSetLeftNodeFalseTest(){
-        ITreeNode n = new ExampleTreeNode();
-        ITreeNode t = new ExampleTreeNode();
-        ITreeNode j = new ExampleTreeNode();
-        t.setLeftNode(j);
+        ITreeNode n = new ExampleTreeNode(1);
+        ITreeNode t = new ExampleTreeNode(3);
+        ITreeNode j = new ExampleTreeNode(2);
+        t.addNode(j);
         assertFalse(n.equals(t.getLeftNode()));
     }
     
     @Test
     public void getSetRightNodeFalseTest(){
-        ITreeNode n = new ExampleTreeNode();
-        ITreeNode t = new ExampleTreeNode();
-        ITreeNode j = new ExampleTreeNode();
-        t.setRightNode(j);
+        ITreeNode n = new ExampleTreeNode(1);
+        ITreeNode t = new ExampleTreeNode(3);
+        ITreeNode j = new ExampleTreeNode(2);
+        t.addNode(j);
         assertFalse(n.equals(t.getRightNode()));
     }
 }

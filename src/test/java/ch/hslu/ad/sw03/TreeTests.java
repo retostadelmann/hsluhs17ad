@@ -31,10 +31,42 @@ public class TreeTests {
         assertEquals(searchVal, t.getValue());
     }
     
+    @Test
+    public void SearchWithSingleElementTest(){
+        ITree b = new ExampleTree();
+        b.addNode(4);
+        
+        int searchVal = 4;
+        ITreeNode t = b.search(searchVal);
+        assertEquals(searchVal, t.getValue());
+    }
+    
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void SearchWithSingleElementFalseTest(){
+        ITree b = new ExampleTree();
+        b.addNode(4);
+        
+        int searchVal = 3;
+        ITreeNode t = b.search(searchVal);
+    }
+    
     @Test(expected = IllegalArgumentException.class)
     public void insertAlreadyExistingNodeTest(){
         ITree b = new ExampleTree();
         b.addNode(5);
+        b.addNode(6);
+        b.addNode(8);
+        b.addNode(34);
+        b.addNode(16);
+        b.addNode(9);   
         b.addNode(5);
+    }
+    
+    @Test
+    public void insertNodeTest(){
+        ITree b = new ExampleTree();
+        b.addNode(5);
+        b.addNode(6);
+        
     }
 }

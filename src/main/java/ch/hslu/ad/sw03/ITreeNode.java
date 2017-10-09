@@ -9,11 +9,17 @@ package ch.hslu.ad.sw03;
  *
  * @author reto.stadelmann
  */
-public interface ITreeNode {
-    int getValue();
-    void setValue(final int value);
+public interface ITreeNode <T> {
+    int getHash();
+    T getValue();
+    void setValue(final T value);
     void addNode(ITreeNode node);
     ITreeNode getLeftNode();
     ITreeNode getRightNode();
-    ITreeNode search(int value);
+    void removeLeftNode();
+    void removeRightNode();
+    ITreeNode search(T value);
+    boolean canBeRemoved();
+    ITreeNode getParentNode();
+    void setParentNode(ITreeNode node);
 }
