@@ -64,7 +64,9 @@ public final class ExampleTreeNode<T extends Comparable<T>> implements ITreeNode
             }
         }
     }
-
+    
+    
+    
     @Override
     public boolean canBeRemoved() {
         return this.getLeftNode() == null && this.getRightNode() == null;
