@@ -1,8 +1,5 @@
-
-import ch.hslu.ad.sw03.ExampleTree;
-import ch.hslu.ad.sw03.ITree;
-import ch.hslu.ad.sw04.ExampleHashSet;
-import java.util.Objects;
+import ch.hslu.ad.sw05.Bank;
+import ch.hslu.ad.sw05.BankAccount;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,8 +16,17 @@ public class MyMassiveMainClass {
 
     static Logger LOG = LogManager.getLogger(MyMassiveMainClass.class);
 
-    public static void main(final String[] args) {
-        ExampleHashSet ehs = new ExampleHashSet(20);
-        ehs.add(9);
+    public static void main(final String[] args) throws InterruptedException {
+        Bank b = new Bank(400, 200);
+        b.StartTransfer();
+        Thread.sleep(800);
+        
+        b.getSourceAccounts().forEach((ba) -> {
+            LOG.info("Balance for source Account " + ba + ": " + ba.getBalance());
+        });
+        
+        b.getDestAccounts().forEach((ba) -> {
+            LOG.info("Balance for dest Account " + ba + ": " + ba.getBalance());
+        });
     }
 }
