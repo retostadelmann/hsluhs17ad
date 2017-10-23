@@ -19,9 +19,9 @@ public class MyMassiveMainClass {
 
     public static void main(final String[] args) throws InterruptedException {
         
-        AdditionTask at1 = new AdditionTask(4, 9383875);
-        AdditionTask at2 = new AdditionTask(35256, 29383875);
-        AdditionTask at3 = new AdditionTask(26463, 89383875);
+        AdditionTask at1 = new AdditionTask(4, 93);
+        AdditionTask at2 = new AdditionTask(35, 298);
+        AdditionTask at3 = new AdditionTask(23, 893);
         
         Thread t1 = new Thread(at1);
         Thread t2 = new Thread(at2);
@@ -31,10 +31,10 @@ public class MyMassiveMainClass {
         t2.start();
         t3.start();
         
-        /*Thread.sleep(20);
+        Thread.sleep(1);
         
         at1.Stop();
         at2.Stop();
-        at3.Stop();*/
+        at3.Stop();
     }
 }

@@ -45,11 +45,11 @@ public class AdditionTask implements Runnable {
 // Arbeitsphase
         for (int i = this.rangeBegin; i <= this.rangeEnd; i++) {
             sum += i;
-            /*try {
-                Thread.sleep(1);
+            try {
+                Thread.sleep(15);
             } catch (InterruptedException ex) {
                 java.util.logging.Logger.getLogger(AdditionTask.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+            }
         }
 // Aufräumphase
         if (!isStopped()) {
