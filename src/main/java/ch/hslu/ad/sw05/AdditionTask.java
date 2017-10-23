@@ -40,22 +40,24 @@ public class AdditionTask implements Runnable {
         int n = this.rangeEnd - this.rangeBegin;
 
         this.runThread = Thread.currentThread();
-// Initialisierungsphase
+    // Initialisierungsphase
         long sum = 0;
-// Arbeitsphase
+    // Arbeitsphase
         for (int i = this.rangeBegin; i <= this.rangeEnd; i++) {
+             if(this.isStopped()) {
+                LOG.info(runThread.getName() + ": interrupted.");
+                break;
+            }
             sum += i;
             try {
-                Thread.sleep(15);
+                Thread.sleep(150);
             } catch (InterruptedException ex) {
                 java.util.logging.Logger.getLogger(AdditionTask.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-// Aufräumphase
-        if (!isStopped()) {
-            LOG.info(runThread.getName() + ": SUM" + n + " -> " + sum);
-        } else {
-            LOG.info(runThread.getName() + ": interrupted.");
-        }
+        // Aufräumphase
+            if (!isStopped()) {
+                LOG.info(runThread.getName() + ": SUM" + n + " -> " + sum);
+            }
     }
 }

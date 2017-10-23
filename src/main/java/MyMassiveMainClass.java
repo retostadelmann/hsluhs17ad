@@ -31,7 +31,7 @@ public class MyMassiveMainClass {
         t2.start();
         t3.start();
         
-        Thread.sleep(1);
+        Thread.sleep(1000);
         
         at1.Stop();
         at2.Stop();
