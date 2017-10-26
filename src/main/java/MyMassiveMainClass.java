@@ -1,6 +1,8 @@
+import ch.hslu.ad.sw05.JoinAndSleep;
 import ch.hslu.ad.sw05.AdditionTask;
 import ch.hslu.ad.sw05.Bank;
 import ch.hslu.ad.sw05.BankAccount;
+import java.util.logging.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,7 +21,7 @@ public class MyMassiveMainClass {
 
     public static void main(final String[] args) throws InterruptedException {
         
-        AdditionTask at1 = new AdditionTask(4, 93);
+        /*AdditionTask at1 = new AdditionTask(4, 93);
         AdditionTask at2 = new AdditionTask(35, 298);
         AdditionTask at3 = new AdditionTask(23, 893);
         
@@ -35,6 +37,41 @@ public class MyMassiveMainClass {
         
         at1.Stop();
         at2.Stop();
-        at3.Stop();
+        at3.Stop();*/
+        
+        Thread t10 = new Thread(new Runnable() {
+                        @Override
+                        public void run(){
+                            try {
+                                Thread.sleep(4000);
+                            } catch (InterruptedException ex) {
+                                java.util.logging.Logger.getLogger(MyMassiveMainClass.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    });
+        Thread t20 = new Thread(new Runnable() {
+                        @Override
+                        public void run(){
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                java.util.logging.Logger.getLogger(MyMassiveMainClass.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    });
+        Thread t30 = new Thread(new Runnable() {
+                        @Override
+                        public void run(){
+                            try {
+                                Thread.sleep(2000);
+                            } catch (InterruptedException ex) {
+                                java.util.logging.Logger.getLogger(MyMassiveMainClass.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    });
+        
+        JoinAndSleep js3 = new JoinAndSleep("Thread 3", t30);
+        JoinAndSleep js2 = new JoinAndSleep("Thread 2", t20);
+        JoinAndSleep js1 = new JoinAndSleep("Thread 1", t10);      
     }
 }
