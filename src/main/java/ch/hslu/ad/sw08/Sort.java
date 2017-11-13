@@ -24,10 +24,25 @@ public final class Sort {
      */
     public static <T extends Comparable<? super T>> void insertionSort(T[] a) {
         T temp;
+        int j;
         for (int i = 1; i < a.length; i++) {
             temp = a[i]; // next temp for insert
-            int j = i;
+            j = i;
             while (j > 0 && a[j - 1].compareTo(temp) > 0) {
+                a[j] = a[j - 1]; // shift left
+                j--; // go further left
+            }
+            a[j] = temp;
+        }
+    }
+
+    public static void insertionSortint(int[] a) {
+        int temp;
+        int j;
+        for (int i = 1; i < a.length; i++) {
+            temp = a[i]; // next temp for insert
+            j = i;
+            while (j > 0 && a[j - 1] > temp) {
                 a[j] = a[j - 1]; // shift right
                 j--; // go further left
             }
@@ -84,11 +99,11 @@ public final class Sort {
      * @param <T> Comparable-Type
      * @param a Data-Array
      */
-    public static <T extends Comparable<? super T>> void bubbleSort2(T[] a) {       
+    public static <T extends Comparable<? super T>> void bubbleSort2(T[] a) {
         // start at 1 to skip the last item, which will be the biggest anyway.
         for (int i = 1; i < a.length; i++) {
             boolean nothingToBubble = true;
-            
+
             for (int j = 0; j < a.length - 1 - i; j++) {
                 if (a[j].compareTo(a[j + 1]) > 0) {
                     T temp = a[j];
@@ -97,10 +112,39 @@ public final class Sort {
                     nothingToBubble = false;
                 }
             }
-            
-            if(nothingToBubble){
+
+            if (nothingToBubble) {
                 break;
             }
+        }
+    }
+
+    /**
+     * Sortiert das Array Shellig.
+     *
+     * @param <T> Comparable-Type
+     * @param a Data-Array
+     */
+    public static <T extends Comparable<? super T>> void shellSort(T[] a) {
+        int inner, outer;
+        T temp;
+
+        int h = 1;
+        while (h <= a.length / 3) {
+            h = h * 3 + 1;
+        }
+        while (h > 0) {
+            for (outer = h; outer < a.length; outer++) {
+                temp = a[outer];
+                inner = outer;
+
+                while (inner > h - 1 && a[inner - h].compareTo(temp) >= 0) {
+                    a[inner] = a[inner - h];
+                    inner -= h;
+                }
+                a[inner] = temp;
+            }
+            h = (h - 1) / 3;
         }
     }
 }

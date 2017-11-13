@@ -137,7 +137,6 @@ public class SortTest {
         }
         long start = System.currentTimeMillis();
         Sort.bubbleSort2(data);
-        LOG.info("Took " + (start-System.currentTimeMillis()) + "ms");
 
         assertTrue(data[0].compareTo(data[data.length - 1]) < 0);
          
@@ -146,5 +145,20 @@ public class SortTest {
         assertTrue(data[3].compareTo(data[4]) <= 0);
         
         assertTrue(data[300].compareTo(data[600]) < 0);
+    }
+    
+    @Test
+    public void shellSortRandomTest(){
+        int size = 80000;
+        Integer[] data = new Integer[size];
+        for(int i = 0; i < data.length; i++){
+            data[i] = ThreadLocalRandom.current().nextInt(0, size*2);
+        }
+        long start = System.currentTimeMillis();
+        Sort.shellSort(data);
+
+        for(int i = 1; i < data.length; i++){
+            assertTrue(data[i - 1].compareTo(data[i]) <= 0);
+        }
     }
 }
