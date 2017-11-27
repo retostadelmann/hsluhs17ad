@@ -19,7 +19,7 @@ public class SortDemo {
     public static void main(final String args[]) {
         long start;
         Integer[] data;
-        int size = 40000;
+        int size = 20000;
         
         LOG.info("Starting sorting with " + size + " elements");
         LOG.info("------------------------------------------");
